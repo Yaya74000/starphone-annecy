@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starphone Annecy - Réparation de Téléphones & Tablettes</title>
+    <meta name="description" content="Réparation express de téléphones, tablettes et écrans à Annecy. Diagnostic rapide, remplacement de batterie et réparation de boutons au 15 Rue de la Gare.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --text: #334155;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(37, 99, 235, 0.85)), url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* --- STATS / INFOS RAPIDES --- */
+        .quick-info {
+            max-width: 1200px;
+            margin: -3rem auto 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .info-card h3 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Filtre dynamique */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .service-item:hover .service-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .service-item h3 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+        }
+
+        /* --- MODAL (DYNAMIQUE) --- */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 2000;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 2rem;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+                }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .quick-info {
+                margin-top: -1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo"><i class="fa-solid fa-mobile-screen-button"></i> Starphone<span>Annecy</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Nos Services</a></li>
+                <li><a href="#contact">Contact & Accès</a></li>
+                <li><a href="#" class="btn-nav open-modal-btn">Devis Gratuit</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>Votre Smartphone réparé à Annecy en un temps record</h1>
+            <p>Experts en réparation d'écrans, batteries, connecteurs de charge et pannes logicielles. Diagnostic transparent et de qualité.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">Voir nos services</a>
+                <a href="tel:0951868767" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> 09 51 86 87 67</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-info">
+        <div class="info-card">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+                <h3>Horaires d'ouverture</h3>
+                <p>Ouvert • Ferme à 18:30</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+                <h3>Notre Adresse</h3>
+                <p>15 Rue de la Gare, 74000 Annecy</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <i class="fa-solid fa-star"></i>
+            <div>
+                <h3>Avis Clients</h3>
+                <p><strong>4,0 / 5</strong> (37 avis Google)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title">
+            <p>Notre Expertise</p>
+            <h2>Prestations de Réparation</h2>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Tous les services</button>
+            <button class="filter-btn" data-filter="hardware">Matériel / Pièces</button>
+            <button class="filter-btn" data-filter="software">Système / Logiciel</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+            <div class="service-item" data-category="hardware">
+                <div class="service-icon"><i class="fa-solid fa-display"></i></div>
+                <h3>Écran & Vitres</h3>
+                <p>Remplacement d'écrans cassés, tactiles défaillants ou dalles LCD/OLED endommagées.</p>
+            </div>
+            <div class="service-item" data-category="hardware">
+                <div class="service-icon"><i class="fa-solid fa-battery-three-quarters"></i></div>
+                <h3>Remplacement de Piles / Batterie</h3>
+                <p>Votre téléphone se décharge vite ? Redonnez-lui son autonomie d'origine.</p>
+            </div>
+            <div class="service-item" data-category="hardware">
+                <div class="service-icon"><i class="fa-solid fa-plug"></i></div>
+                <h3>Connecteurs de Charge</h3>
+                <p>Correction des faux contacts et remplacement des ports USB-C / Lightning défectueux.</p>
+            </div>
+            <div class="service-item" data-category="software">
+                <div class="service-icon"><i class="fa-solid fa-gear"></i></div>
+                <h3>Problèmes Logiciels</h3>
+                <p>Réinstallation de système, déblocage, résolutions de bootloop (iOS & Android).</p>
+            </div>
+            <div class="service-item" data-category="hardware">
+                <div class="service-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+                <h3>Dégâts des Eaux</h3>
+                <p>Désoxydation complète des composants suite à une immersion ou projection de liquide.</p>
+            </div>
+            <div class="service-item" data-category="hardware">
+                <div class="service-icon"><i class="fa-solid fa-toggle-on"></i></div>
+                <h3>Boutons & Power</h3>
+                <p>Réparation du bouton Marche/Arrêt, boutons volume et switch vibreur.</p>
+            </div>
+            <div class="service-item" data-category="hardware">
+                <div class="service-icon"><i class="fa-solid fa-camera"></i></div>
+                <h3>Appareil Photo / Coques</h3>
+                <p>Changement de lentilles de caméra brisées ou lentilles floues et remplacement de coques.</p>
+            </div>
+            <div class="service-item" data-category="all">
+                <div class="service-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+                <h3>Tablettes & Audio</h3>
+                <p>Réparation complète de tablettes, remplacement de micros et haut-parleurs.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Starphone Annecy</h3>
+                <p>Votre atelier de confiance au cœur d'Annecy pour donner une seconde vie à vos appareils numériques.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> 09 51 86 87 67</p>
+                <p><i class="fa-solid fa-location-dot"></i> 15 Rue de la Gare, 74000 Annecy</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services Phares</h3>
+                <p>• Diagnostic Complet</p>
+                <p>• Remplacement d'Écran</p>
+                <p>• Changement de Batterie</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Starphone Annecy. Tous droits réservés.
+        </div>
+    </footer>
+
+    <!-- MODAL DEVIS DYNAMIQUE -->
+    <div class="modal" id="devisModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 style="margin-bottom: 1.5rem; color: var(--secondary)">Demande de Devis Gratuit</h3>
+            
+            <form id="devisForm" action="https://formsubmit.co/ajax/starphoneannecy@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label for="appareil">Type d'appareil</label>
+                    <select id="appareil" name="Appareil" required>
+                        <option value="">Sélectionnez...</option>
+                        <option value="smartphone">Smartphone (iPhone, Samsung, etc.)</option>
+                        <option value="tablette">Tablette (iPad, etc.)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="panne">Type de Panne</label>
+                    <select id="panne" name="Type de Panne" required>
+                        <option value="">Sélectionnez la panne...</option>
+                        <option value="ecran">Écran cassé / Tactile</option>
+                        <option value="batterie">Batterie / Autonomie</option>
+                        <option value="charge">Connecteur de charge</option>
+                        <option value="logiciel">Problème Logiciel</option>
+                        <option value="autre">Autre panne</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Votre Email</label>
+                    <input type="email" id="email" name="Email du Client" placeholder="exemple@mail.com" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Envoyer ma demande</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Menu Mobile Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fermer le menu mobile au clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Filtrage Dynamique des Services
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const serviceItems = document.querySelectorAll('.service-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                serviceItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue || item.getAttribute('data-category') === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Gestion de la Modal (Devis)
+        const modal = document.getElementById('devisModal');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+        const closeModal = document.getElementById('closeModal');
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Soumission du Formulaire en arrière-plan
+        document.getElementById('devisForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
+            btn.disabled = true;
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === "true" || data.success === true) {
+                    alert('Félicitations ! Votre demande de devis a bien été envoyée à Starphone Annecy.');
+                    form.reset();
+                    document.getElementById('devisModal').classList.remove('active');
+                } else {
+                    alert('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert('Erreur de connexion au serveur. Vérifiez votre réseau.');
+            })
+            .finally(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
